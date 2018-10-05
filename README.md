@@ -44,3 +44,24 @@ django-admin startproject projectname
  | - manage.py : Let's us manage everything about our project
  
  ```
+
+## How to make URL with the path() function:
+```python
+urlpatterns = [
+ path('route/', views.route_function, name='route_name'),
+ path('route/<string_variable>', views.string_function, name='string_name'),
+ path('route/<int:variable_name>', views.int_function, name='int_name'),
+]
+```
+
+## How to make a view() function:
+```python
+def route_function(request):
+    return render(request, 'template.html')
+
+def string_function(request, string_variable):
+    return render(request, 'string_variable_template.html', { 'data': string_variable })
+    
+def int_function(request, variable_name):
+    return render(request, 'int_variable_template.html', { 'data': variable_name })
+```
